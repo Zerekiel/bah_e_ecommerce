@@ -73,9 +73,9 @@
                 </ul>
             </nav>
             <!-- Button Group -->
-            <div class="amado-btn-group mt-30 mb-100">
+            <!-- <div class="amado-btn-group mt-30 mb-100">
                 <a href="../cart.html" class="btn amado-btn active">Reservation</a>
-            </div>
+            </div> -->
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
                 <a href="#" class="search-nav"><img src="../img/core-img/search.png" alt=""> Search</a>
@@ -158,9 +158,35 @@
                             </div>
 
                             <!-- Reservation Form -->
-                            <form class="cart clearfix" method="post">
+                            <!-- <form class="cart clearfix" method="post">
                                 <button type="submit" name="addtocart" value="5" class="btn amado-btn">Reservation</button>
+                            </form> -->
+                            <form action="https://postmail.invotes.com/send"
+                                method="post" id="email_form">
+                                <div class="amado-btn product-meta-data">
+                                        <input type="text" name="subject" placeholder="Subject" />
+                                </div>
+                                <div class="product-meta-data">
+                                        <textarea rows="4" cols="50" name="text" placeholder="Enter your Name, your Email and your Message"></textarea>
+                                </div>
+                                <input type="hidden" name="access_token" value="w5lh4ud8qe1qjs7wub54l0eu" />
+                                <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+                                <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+
+                                <input id="submit_form" type="submit" class="btn amado-btn" value="Reservation" />
                             </form>
+
+                            <!-- optional, prevents the submit button from being pressed more than once -->
+                            <script>
+                                var submitButton = document.getElementById("submit_form");
+                                var form = document.getElementById("email_form");
+                                form.addEventListener("submit", function (e) {
+                                    setTimeout(function() {
+                                        submitButton.value = "Sending...";
+                                        submitButton.disabled = true;
+                                    }, 1);
+                                });
+                            </script>
 
                         </div>
                     </div>
